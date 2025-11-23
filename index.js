@@ -17,24 +17,24 @@ for (const file of servapps) {
   // list all screenshots in the directory servapps/${file}/screenshots
   const screenshots = fs.readdirSync(`./servapps/${file}/screenshots`)
   for (const screenshot of screenshots) {
-    servapp.screenshots.push(`https://ragdata.github.io/cosmos-servapps/servapps/${file}/screenshots/${screenshot}`)
+    servapp.screenshots.push(`https://julowe.github.io/cosmos-servapps-ragdata/servapps/${file}/screenshots/${screenshot}`)
   }
 
   if(fs.existsSync(`./servapps/${file}/artefacts`)) {
     const artefacts = fs.readdirSync(`./servapps/${file}/artefacts`)
     for(const artefact of artefacts) {
-      servapp.artefacts[artefact] = (`https://ragdata.github.io/cosmos-servapps/servapps/${file}/artefacts/${artefact}`)
+      servapp.artefacts[artefact] = (`https://julowe.github.io/cosmos-servapps-ragdata/servapps/${file}/artefacts/${artefact}`)
     }
   }
 
-  servapp.icon = `https://ragdata.github.io/cosmos-servapps/servapps/${file}/icon.png`
+  servapp.icon = `https://julowe.github.io/cosmos-servapps-ragdata/servapps/${file}/icon.png`
   //Common Format,used by most
-  const YMLComposeSource =  `https://ragdata.github.io/cosmos-servapps/servapps/${file}/docker-compose.yml`;
+  const YMLComposeSource =  `https://julowe.github.io/cosmos-servapps-ragdata/servapps/${file}/docker-compose.yml`;
   if(fs.existsSync(`./servapps/${file}/docker-compose.yml`)) {
     servapp.compose = YMLComposeSource;
   }
   //Cosmos Legacy Format
-  const CosmosComposeSource =  `https://ragdata.github.io/cosmos-servapps/servapps/${file}/cosmos-compose.json`; 
+  const CosmosComposeSource =  `https://julowe.github.io/cosmos-servapps-ragdata/servapps/${file}/cosmos-compose.json`;
   if(fs.existsSync(`./servapps/${file}/cosmos-compose.json`)) {
     servapp.compose = CosmosComposeSource;
     }
@@ -59,10 +59,10 @@ for (const servapp of servappsJSON) {
   servapp.compose = `http://localhost:3000/servapps/${servapp.id}/cosmos-compose.json`
   servapp.icon = `http://localhost:3000/servapps/${servapp.id}/icon.png`
   for (let i = 0; i < servapp.screenshots.length; i++) {
-    servapp.screenshots[i] = servapp.screenshots[i].replace('https://ragdata.github.io/cosmos-servapps', 'http://localhost:3000')
+    servapp.screenshots[i] = servapp.screenshots[i].replace('https://julowe.github.io/cosmos-servapps-ragdata', 'http://localhost:3000')
   }
   for (const artefact in servapp.artefacts) {
-    servapp.artefacts[artefact] = servapp.artefacts[artefact].replace('https://ragdata.github.io/cosmos-servapps', 'http://localhost:3000')
+    servapp.artefacts[artefact] = servapp.artefacts[artefact].replace('https://julowe.github.io/cosmos-servapps-ragdata', 'http://localhost:3000')
   }
 }
 
