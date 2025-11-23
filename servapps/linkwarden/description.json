@@ -4,6 +4,6 @@
     "description": "Your all-in-one collaborative tool for collecting and preserving useful webpages and documents.",
     "tags": ["bookmark", "collaboration"],
     "repository": "https://github.com/linkwarden/linkwarden",
-    "image": "https://hub.docker.com/r/wbsu2003/linkwarden",
-    "supported_architectures": ["amd64"]
+    "image": "https://ghcr.io/linkwarden/linkwarden",
+    "supported_architectures": ["amd64", "arm64"]
 }
